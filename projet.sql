@@ -359,7 +359,7 @@ INSERT INTO Ligne_Vente VALUES (28, 128, 'P028', '281000000000028', '29292929292
 INSERT INTO Ligne_Vente VALUES (29, 129, 'P029', '291000000000029', '30303030303030');
 
 
--- trigger heritage pain
+-- TRIGGER HERITAGE PAIN
 CREATE OR REPLACE TRIGGER heritage_pain
 BEFORE INSERT OR UPDATE ON pain
 FOR EACH ROW
@@ -412,6 +412,50 @@ BEGIN
         IF v_count = 0 THEN
             RAISE_APPLICATION_ERROR(-20004, 'Le SIRET de la boulangerie spécifié dans l''employé n''existe pas.');
         END IF;
+    END IF;
+END;
+/
+
+-- TRIGGER RESTRICTION AGE DES EMPLOYE
+CREATE OR REPLACE TRIGGER verif_age_employe
+BEFORE INSERT OR UPDATE ON Employe
+FOR EACH ROW
+DECLARE
+    v_age_minimum NUMBER := 18; 
+BEGIN
+    IF MONTHS_BETWEEN(SYSDATE, :NEW.date_naissance) < v_age_minimum * 12 THEN
+        RAISE_APPLICATION_ERROR(-20006, 'L''employé doit être âgé d''au moins 18 ans.');
+    END IF;
+END;
+/
+
+-- TRIGGER MAJ DU MONTANT TOTAL DE VENTE DANS LA TABLE VENTE
+CREATE OR REPLACE TRIGGER maj_montant_total_vente
+BEFORE INSERT OR UPDATE OF total_ligne ON Ligne_Vente
+FOR EACH ROW
+DECLARE
+    v_montant_total NUMBER;
+BEGIN
+    SELECT SUM(total_ligne)
+    INTO v_montant_total
+    FROM Ligne_Vente
+    WHERE numero_vente = :NEW.numero_vente;
+
+    UPDATE Vente
+    SET total = v_montant_total
+    WHERE numero_vente = :NEW.numero_vente;
+END;
+/
+
+
+-- TRIGGER VERIFIER L'ASSIGNATION A UNE EQUIPE A L'EMBAUCHE
+CREATE OR REPLACE TRIGGER verif_assignation_equipe_embauche
+BEFORE INSERT ON Employe
+FOR EACH ROW
+DECLARE
+BEGIN
+    IF :NEW.num_equipe IS NULL THEN
+        RAISE_APPLICATION_ERROR(-20008, 'L''employé doit être assigné à une équipe lors de l''embauche.');
     END IF;
 END;
 /
