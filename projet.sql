@@ -8,20 +8,6 @@ CREATE TABLE Clients (
 -- Table Boulangerie
 CREATE TABLE Boulangerie (
     numero_siret VARCHAR2(14) CONSTRAINT pk_boulangerie PRIMARY KEY,
-    nom_boulangerie VARCHAR2(30),
-    adresse VARCHAR2(50),
-    ville VARCHAR2(20),
-    heure_ouverture VARCHAR2(8),
-    heure_fermeture VARCHAR2(8),-- Table Clients
-CREATE TABLE Clients (
-    numero_client VARCHAR2(15) CONSTRAINT pk_clients PRIMARY KEY,
-    nom VARCHAR2(30),
-    prenom VARCHAR2(30)
-);
-
--- Table Boulangerie
-CREATE TABLE Boulangerie (
-    numero_siret VARCHAR2(14) CONSTRAINT pk_boulangerie PRIMARY KEY,
     nom_boulangerie VARCHAR2(20),
     adresse VARCHAR2(50),
     ville VARCHAR2(20),
@@ -102,15 +88,16 @@ REFERENCES Employe(nss);
 -- Table Pain
 CREATE TABLE Pain (
     reference_produit VARCHAR2(10) CONSTRAINT pk_pain PRIMARY KEY,
-    nom Varchar(30),
+    nom VARCHAR2(30),
     temperature_conservation NUMBER
 );
 
--- Ajout de la contrainte après la création de la table Produit
+-- Ajout de la contrainte après la création de la table Pain
 ALTER TABLE Pain
 ADD CONSTRAINT fk_reference_pain
 FOREIGN KEY (reference_produit)
 REFERENCES Produit(reference_produit);
+
 
 -- Table Patisserie
 CREATE TABLE Patisserie (
@@ -130,7 +117,7 @@ REFERENCES Produit(reference_produit);
 CREATE TABLE Ligne_Vente (
     numero_ligne_vente NUMBER CONSTRAINT pk_ligne PRIMARY KEY,
     numero_vente NUMBER,
-    ref_produit VARCHAR(10),
+    ref_produit VARCHAR2(10),
     total_ligne NUMBER,
     quantite NUMBER
 );
@@ -142,9 +129,10 @@ FOREIGN KEY (numero_vente)
 REFERENCES Vente(numero_vente);
 
 ALTER TABLE Ligne_Vente
-ADD CONSTRAINT fk_ligne_ligne
+ADD CONSTRAINT fk_ligne_produit  
 FOREIGN KEY (ref_produit)
-REFERENCES Produit(ref_produit);
+REFERENCES Produit(reference_produit); 
+
 
 
 -- INSERT CLIENTS
