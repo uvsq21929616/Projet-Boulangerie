@@ -130,7 +130,7 @@ REFERENCES Vente(numero_vente);
 ALTER TABLE Ligne_Vente
 ADD CONSTRAINT fk_ligne_produit
 FOREIGN KEY (ref_produit)
-REFERENCES Produit(ref_produit);
+REFERENCES Produit(reference_produit);
 
 
 -- INSERT CLIENTS
@@ -355,17 +355,28 @@ INSERT INTO Ligne_Vente VALUES (27, 127, TO_DATE('2024-03-10', 'YYYY-MM-DD'), '2
 INSERT INTO Ligne_Vente VALUES (28, 128, TO_DATE('2024-04-15', 'YYYY-MM-DD'), '281000000000028', '29292929292929');
 INSERT INTO Ligne_Vente VALUES (29, 129, TO_DATE('2024-05-20', 'YYYY-MM-DD'), '291000000000029', '30303030303030');
 
-create or replace trigger heritage_pain
-before insert or update on pain
-for each ROW
-
-DECLARE 
-    ref produit.reference_produit%TYPE
+CREATE OR REPLACE TRIGGER heritage_pain
+BEFORE INSERT OR UPDATE ON pain FOR EACH ROW
+DECLARE
+    produit Pain.reference_produit%TYPE;
 BEGIN
-    select * from Patisserie
-    where Patisserie.ref_produit = produit;
-    if (sql%Found) then 
-        raise application_error(-200001, "le produit est déjà une patisserie")
-    end if;
-end;
+    SELECT reference_produit INTO produit FROM Patisserie WHERE Patisserie.reference_produit = :NEW.reference_produit;
+
+    IF produit IS NOT NULL THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Le produit est déjà une patisserie');
+    END IF;
+END;
+/
+
+CREATE OR REPLACE TRIGGER heritage_patisserie
+BEFORE INSERT OR UPDATE ON patisserie FOR EACH ROW
+DECLARE
+    produit Patisserie.reference_produit%TYPE;
+BEGIN
+    SELECT reference_produit INTO produit FROM Pain WHERE Pain.reference_produit = :NEW.reference_produit;
+
+    IF produit IS NOT NULL THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Le produit est déjà un pain');
+    END IF;
+END;
 /
