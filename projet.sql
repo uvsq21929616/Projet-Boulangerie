@@ -87,9 +87,9 @@ REFERENCES Employe(nss);
 
 -- Table Pain
 CREATE TABLE Pain (
-    reference_produit VARCHAR2(10) CONSTRAINT pk_produit PRIMARY KEY,
+    reference_produit VARCHAR2(10) CONSTRAINT pk_pain PRIMARY KEY,
     nom Varchar(30),
-    temperature_conservation NUMBER,
+    temperature_conservation NUMBER
 );
 
 -- Ajout de la contrainte après la création de la table Produit
@@ -354,3 +354,18 @@ INSERT INTO Ligne_Vente VALUES (26, 126, TO_DATE('2024-02-05', 'YYYY-MM-DD'), '2
 INSERT INTO Ligne_Vente VALUES (27, 127, TO_DATE('2024-03-10', 'YYYY-MM-DD'), '271000000000027', '28282828282828');
 INSERT INTO Ligne_Vente VALUES (28, 128, TO_DATE('2024-04-15', 'YYYY-MM-DD'), '281000000000028', '29292929292929');
 INSERT INTO Ligne_Vente VALUES (29, 129, TO_DATE('2024-05-20', 'YYYY-MM-DD'), '291000000000029', '30303030303030');
+
+create or replace trigger heritage_pain
+before insert or update on pain
+for each ROW
+
+DECLARE 
+    ref produit.reference_produit%TYPE
+BEGIN
+    select * from Patisserie
+    where Patisserie.ref_produit = produit;
+    if (sql%Found) then 
+        raise application_error(-200001, "le produit est déjà une patisserie")
+    end if;
+end;
+/
