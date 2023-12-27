@@ -74,7 +74,6 @@ REFERENCES Clients(numero_client);
 -- Table Produit
 CREATE TABLE Produit (
     reference_produit VARCHAR2(10) CONSTRAINT pk_produit PRIMARY KEY,
-    reference_type_produit VARCHAR2(20),
     prix NUMBER(4, 2),
     date_fabrication DATE,
     nss_fabricant VARCHAR2(14)
@@ -85,6 +84,33 @@ ALTER TABLE Produit
 ADD CONSTRAINT fk_fabricant
 FOREIGN KEY (nss_fabricant)
 REFERENCES Employe(nss);
+
+-- Table Pain
+CREATE TABLE Pain (
+    reference_produit VARCHAR2(10) CONSTRAINT pk_produit PRIMARY KEY,
+    nom Varchar(30),
+    temperature_conservation NUMBER,
+);
+
+-- Ajout de la contrainte après la création de la table Produit
+ALTER TABLE Pain
+ADD CONSTRAINT fk_reference_pain
+FOREIGN KEY (reference_produit)
+REFERENCES Produit(reference_produit);
+
+-- Table Patisserie
+CREATE TABLE Patisserie (
+    reference_produit VARCHAR2(10) CONSTRAINT pk_patisserie PRIMARY KEY,
+    nom Varchar(30),
+    temperature_conservation NUMBER
+);
+
+-- Ajout de la contrainte après la création de la table Patisserie
+ALTER TABLE Patisserie
+ADD CONSTRAINT fk_reference_patisserie
+FOREIGN KEY (reference_produit)
+REFERENCES Produit(reference_produit);
+
 
 -- Table Ligne_Vente
 CREATE TABLE Ligne_Vente (
