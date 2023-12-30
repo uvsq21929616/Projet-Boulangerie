@@ -232,35 +232,66 @@ INSERT INTO Equipe VALUES (29, 'Matin Tardif Weekend', '30303030303030');
 
 
 -- INSERT EMPLOYE 
-INSERT INTO Employe VALUES ('10000000000001', 'Anderson', 'Michael', TO_DATE('1992-03-18', 'YYYY-MM-DD'), 'M', '11111111111111', 53000.00, TO_DATE('2022-08-25', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Baker');
+INSERT INTO Employe VALUES ('10000000000001', 'Anderson', 'Michael', TO_DATE('1992-03-18', 'YYYY-MM-DD'), 'M', '11111111111111', 53000.00, TO_DATE('2022-08-25', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Che');
 INSERT INTO Employe VALUES ('20000000000002', 'Davis', 'Olivia', TO_DATE('1994-07-10', 'YYYY-MM-DD'), 'F', '22222222222222', 56000.00, TO_DATE('2023-01-10', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Chef');
-INSERT INTO Employe VALUES ('30000000000003', 'Clark', 'Christopher', TO_DATE('1987-12-03', 'YYYY-MM-DD'), 'M', '11111111111111', 51000.00, TO_DATE('2021-12-01', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Assistant');
-INSERT INTO Employe VALUES ('40000000000004', 'Taylor', 'Sophia', TO_DATE('1996-09-27', 'YYYY-MM-DD'), 'F', '22222222222222', 54000.00, TO_DATE('2022-05-15', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Cashier');
-INSERT INTO Employe VALUES ('50000000000005', 'Moore', 'Ethan', TO_DATE('1990-04-14', 'YYYY-MM-DD'), 'M', '11111111111111', 59000.00, TO_DATE('2023-03-20', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Baker');
+INSERT INTO Employe VALUES ('30000000000003', 'Clark', 'Christopher', TO_DATE('1987-12-03', 'YYYY-MM-DD'), 'M', '11111111111111', 51000.00, TO_DATE('2021-12-01', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Chef');
+INSERT INTO Employe VALUES ('40000000000004', 'Taylor', 'Sophia', TO_DATE('1996-09-27', 'YYYY-MM-DD'), 'F', '22222222222222', 54000.00, TO_DATE('2022-05-15', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Chef');
+INSERT INTO Employe VALUES ('50000000000005', 'Moore', 'Ethan', TO_DATE('1990-04-14', 'YYYY-MM-DD'), 'M', '11111111111111', 59000.00, TO_DATE('2023-03-20', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Chef');
 INSERT INTO Employe VALUES ('60000000000006', 'White', 'Isabella', TO_DATE('1993-11-08', 'YYYY-MM-DD'), 'F', '22222222222222', 50000.00, TO_DATE('2021-10-05', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Chef');
-INSERT INTO Employe VALUES ('70000000000007', 'Hall', 'Daniel', TO_DATE('1988-06-21', 'YYYY-MM-DD'), 'M', '11111111111111', 55000.00, TO_DATE('2022-07-12', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Assistant');
-INSERT INTO Employe VALUES ('80000000000008', 'Baker', 'Amelia', TO_DATE('1995-02-04', 'YYYY-MM-DD'), 'F', '22222222222222', 52000.00, TO_DATE('2023-04-18', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Cashier');
-INSERT INTO Employe VALUES ('90000000000009', 'Fisher', 'Logan', TO_DATE('1991-09-15', 'YYYY-MM-DD'), 'M', '11111111111111', 48000.00, TO_DATE('2021-11-30', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Assistant');
+INSERT INTO Employe VALUES ('70000000000007', 'Hall', 'Daniel', TO_DATE('1988-06-21', 'YYYY-MM-DD'), 'M', '11111111111111', 55000.00, TO_DATE('2022-07-12', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Chef');
+INSERT INTO Employe VALUES ('80000000000008', 'Chef', 'Amelia', TO_DATE('1995-02-04', 'YYYY-MM-DD'), 'F', '22222222222222', 52000.00, TO_DATE('2023-04-18', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Cashier');
+INSERT INTO Employe VALUES ('90000000000009', 'Fisher', 'Logan', TO_DATE('1991-09-15', 'YYYY-MM-DD'), 'M', '11111111111111', 48000.00, TO_DATE('2021-11-30', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Chef');
 INSERT INTO Employe VALUES ('10100000000010', 'Barnes', 'Mia', TO_DATE('1989-05-28', 'YYYY-MM-DD'), 'F', '22222222222222', 58000.00, TO_DATE('2023-02-01', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Chef');
-INSERT INTO Employe VALUES ('11100000000011', 'Reed', 'William', TO_DATE('1997-10-11', 'YYYY-MM-DD'), 'M', '11111111111111', 53000.00, TO_DATE('2022-09-10', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Baker');
+INSERT INTO Employe VALUES ('11100000000011', 'Reed', 'William', TO_DATE('1997-10-11', 'YYYY-MM-DD'), 'M', '11111111111111', 53000.00, TO_DATE('2022-09-10', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Chef');
 INSERT INTO Employe VALUES ('12100000000012', 'Cole', 'Ava', TO_DATE('1994-03-24', 'YYYY-MM-DD'), 'F', '22222222222222', 56000.00, TO_DATE('2023-01-25', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Chef');
-INSERT INTO Employe VALUES ('13100000000013', 'Hill', 'Jackson', TO_DATE('1986-08-07', 'YYYY-MM-DD'), 'M', '11111111111111', 51000.00, TO_DATE('2021-12-20', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Assistant');
+INSERT INTO Employe VALUES ('13100000000013', 'Hill', 'Jackson', TO_DATE('1986-08-07', 'YYYY-MM-DD'), 'M', '11111111111111', 51000.00, TO_DATE('2021-12-20', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Chef');
 INSERT INTO Employe VALUES ('14100000000014', 'Cooper', 'Grace', TO_DATE('1993-01-30', 'YYYY-MM-DD'), 'F', '22222222222222', 54000.00, TO_DATE('2022-06-05', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Cashier');
 INSERT INTO Employe VALUES ('15100000000015', 'Stewart', 'Ella', TO_DATE('1998-05-18', 'YYYY-MM-DD'), 'F', '11111111111111', 48000.00, TO_DATE('2021-08-15', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Cashier');
-INSERT INTO Employe VALUES ('16100000000016', 'Lee', 'Matthew', TO_DATE('1992-10-03', 'YYYY-MM-DD'), 'M', '22222222222222', 52000.00, TO_DATE('2022-11-20', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Baker');
+INSERT INTO Employe VALUES ('16100000000016', 'Lee', 'Matthew', TO_DATE('1992-10-03', 'YYYY-MM-DD'), 'M', '22222222222222', 52000.00, TO_DATE('2022-11-20', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Chef');
 INSERT INTO Employe VALUES ('17100000000017', 'Foster', 'Aria', TO_DATE('1987-04-26', 'YYYY-MM-DD'), 'F', '33333333333333', 56000.00, TO_DATE('2023-01-05', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Chef');
-INSERT INTO Employe VALUES ('18100000000018', 'Gray', 'Oliver', TO_DATE('1995-09-09', 'YYYY-MM-DD'), 'M', '44444444444444', 50000.00, TO_DATE('2021-10-10', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Assistant');
+INSERT INTO Employe VALUES ('18100000000018', 'Gray', 'Oliver', TO_DATE('1995-09-09', 'YYYY-MM-DD'), 'M', '44444444444444', 50000.00, TO_DATE('2021-10-10', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Chef');
 INSERT INTO Employe VALUES ('19100000000019', 'Bryant', 'Lily', TO_DATE('1989-02-22', 'YYYY-MM-DD'), 'F', '55555555555555', 53000.00, TO_DATE('2022-05-25', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Cashier');
-INSERT INTO Employe VALUES ('20100000000020', 'Murray', 'Elijah', TO_DATE('1994-07-17', 'YYYY-MM-DD'), 'M', '66666666666666', 59000.00, TO_DATE('2023-03-01', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Baker');
+INSERT INTO Employe VALUES ('20100000000020', 'Murray', 'Elijah', TO_DATE('1994-07-17', 'YYYY-MM-DD'), 'M', '66666666666666', 59000.00, TO_DATE('2023-03-01', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Chef');
 INSERT INTO Employe VALUES ('21100000000021', 'Fleming', 'Scarlett', TO_DATE('1991-12-30', 'YYYY-MM-DD'), 'F', '77777777777777', 55000.00, TO_DATE('2022-08-05', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Chef');
-INSERT INTO Employe VALUES ('22100000000022', 'Graham', 'Lucas', TO_DATE('1986-06-13', 'YYYY-MM-DD'), 'M', '88888888888888', 51000.00, TO_DATE('2021-12-15', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Assistant');
+INSERT INTO Employe VALUES ('22100000000022', 'Graham', 'Lucas', TO_DATE('1986-06-13', 'YYYY-MM-DD'), 'M', '88888888888888', 51000.00, TO_DATE('2021-12-15', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Chef');
 INSERT INTO Employe VALUES ('23100000000023', 'Palmer', 'Chloe', TO_DATE('1993-11-06', 'YYYY-MM-DD'), 'F', '99999999999999', 58000.00, TO_DATE('2023-02-10', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Cashier');
-INSERT INTO Employe VALUES ('24100000000024', 'Gardner', 'James', TO_DATE('1997-04-21', 'YYYY-MM-DD'), 'M', '10101010101010', 54000.00, TO_DATE('2022-07-18', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Baker');
+INSERT INTO Employe VALUES ('24100000000024', 'Gardner', 'James', TO_DATE('1997-04-21', 'YYYY-MM-DD'), 'M', '10101010101010', 54000.00, TO_DATE('2022-07-18', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Chef');
 INSERT INTO Employe VALUES ('25100000000025', 'Riley', 'Nora', TO_DATE('1988-09-04', 'YYYY-MM-DD'), 'F', '11111111111111', 56000.00, TO_DATE('2021-09-20', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Chef');
-INSERT INTO Employe VALUES ('26100000000026', 'Woods', 'Mason', TO_DATE('1995-02-17', 'YYYY-MM-DD'), 'M', '12121212121212', 51000.00, TO_DATE('2023-01-15', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Assistant');
+INSERT INTO Employe VALUES ('26100000000026', 'Woods', 'Mason', TO_DATE('1995-02-17', 'YYYY-MM-DD'), 'M', '12121212121212', 51000.00, TO_DATE('2023-01-15', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Chef');
 INSERT INTO Employe VALUES ('27100000000027', 'Porter', 'Zoe', TO_DATE('1990-07-02', 'YYYY-MM-DD'), 'F', '13131313131313', 59000.00, TO_DATE('2022-10-25', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Cashier');
-INSERT INTO Employe VALUES ('28100000000028', 'Hudson', 'Gabriel', TO_DATE('1998-12-15', 'YYYY-MM-DD'), 'M', '14141414141414', 48000.00, TO_DATE('2021-11-30', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Baker');
+INSERT INTO Employe VALUES ('28100000000028', 'Hudson', 'Gabriel', TO_DATE('1998-12-15', 'YYYY-MM-DD'), 'M', '14141414141414', 48000.00, TO_DATE('2021-11-30', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Chef');
 INSERT INTO Employe VALUES ('29100000000029', 'Perry', 'Hannah', TO_DATE('1992-05-28', 'YYYY-MM-DD'), 'F', '15151515151515', 55000.00, TO_DATE('2023-04-05', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Chef');
+INSERT INTO Employe VALUES ('30100000000030', 'Watson', 'James', TO_DATE('1988-10-23', 'YYYY-MM-DD'), 'M', '16161616161616', 52000.00, TO_DATE('2022-04-19', 'YYYY-MM-DD'), 1, 'Tue-Sat', 'Baker');
+INSERT INTO Employe VALUES ('31100000000031', 'Broussard', 'Robert', TO_DATE('1993-11-21', 'YYYY-MM-DD'), 'M', '16161616161616', 51000.00, TO_DATE('2021-10-25', 'YYYY-MM-DD'), 2, 'Mon-Fri', 'Cashier');
+INSERT INTO Employe VALUES ('32100000000032', 'Smith', 'Mary', TO_DATE('1991-09-09', 'YYYY-MM-DD'), 'F', '17171717171717', 53000.00, TO_DATE('2023-12-12', 'YYYY-MM-DD'), 1, 'Tue-Sat', 'Baker');
+INSERT INTO Employe VALUES ('33100000000033', 'Perry', 'Michael', TO_DATE('1995-07-13', 'YYYY-MM-DD'), 'M', '18181818181818', 53000.00, TO_DATE('2022-03-12', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Cashier');
+INSERT INTO Employe VALUES ('34100000000034', 'Williams', 'Jennifer', TO_DATE('2000-05-30', 'YYYY-MM-DD'), 'F', '19191919191919', 53000.00, TO_DATE('2021-06-24', 'YYYY-MM-DD'), 2, 'Mon-Fri', 'Baker');
+INSERT INTO Employe VALUES ('35100000000035', 'Brown', 'David', TO_DATE('1987-02-26', 'YYYY-MM-DD'), 'M', '20202020202020', 49000.00, TO_DATE('2023-08-29', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Baker');
+INSERT INTO Employe VALUES ('36100000000036', 'Jones', 'Elizabeth', TO_DATE('1994-01-28', 'YYYY-MM-DD'), 'F', '21212121212121', 50000.00, TO_DATE('2022-07-02', 'YYYY-MM-DD'), 2, 'Mon-Fri', 'Assistant');
+INSERT INTO Employe VALUES ('37100000000037', 'Miller', 'William', TO_DATE('1997-04-13', 'YYYY-MM-DD'), 'M', '22222222222222', 51000.00, TO_DATE('2022-11-08', 'YYYY-MM-DD'), 1, 'Tue-Sat', 'Cashier');
+INSERT INTO Employe VALUES ('38100000000038', 'Davis', 'Joseph', TO_DATE('1991-09-23', 'YYYY-MM-DD'), 'M', '23232323232323', 48000.00, TO_DATE('2021-09-05', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Baker');
+INSERT INTO Employe VALUES ('39100000000039', 'Dumont', 'Jessica', TO_DATE('1992-07-24', 'YYYY-MM-DD'), 'F', '24242424242424', 49000.00, TO_DATE('2023-02-17', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Assistant');
+INSERT INTO Employe VALUES ('40100000000040', 'Wilson', 'Sarah', TO_DATE('1992-07-09', 'YYYY-MM-DD'), 'F', '25252525252525', 50000.00, TO_DATE('2022-07-15', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Cashier');
+INSERT INTO Employe VALUES ('41100000000041', 'Wilde', 'Lisa', TO_DATE('1996-06-02', 'YYYY-MM-DD'), 'F', '25252525252525', 51000.00, TO_DATE('2022-09-22', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Cashier');
+INSERT INTO Employe VALUES ('42100000000042', 'Grey', 'Chris', TO_DATE('1998-03-22', 'YYYY-MM-DD'), 'M', '18181818181818', 53000.00, TO_DATE('2023-10-01', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Assistant');
+INSERT INTO Employe VALUES ('43100000000043', 'King', 'Chris', TO_DATE('1995-09-28', 'YYYY-MM-DD'), 'M', '19191919191919', 52000.00, TO_DATE('2022-09-18', 'YYYY-MM-DD'), 1, 'Mon-Fri', 'Baker');
+INSERT INTO Employe VALUES ('44100000000044', 'Foley', 'Sandra', TO_DATE('1989-09-13', 'YYYY-MM-DD'), 'F', '26262626262626', 51000.00, TO_DATE('2021-07-11', 'YYYY-MM-DD'), 2, 'Tue-Sat', 'Assistant');
+INSERT INTO Employe VALUES ('45100000000045', 'Thomas', 'Steven', TO_DATE('1998-06-14', 'YYYY-MM-DD'), 'M', '27272727272727', 55000.00, TO_DATE('2022-08-23', 'YYYY-MM-DD'), 1, 'Tue-Sat', 'Cashier');
+INSERT INTO Employe VALUES ('46100000000046', 'Moore', 'Emily', TO_DATE('1999-08-13', 'YYYY-MM-DD'), 'F', '28282828282828', 48000.00, TO_DATE('2023-07-20', 'YYYY-MM-DD'), 2, 'Mon-Fri', 'Cashier');
+INSERT INTO Employe VALUES ('47100000000047', 'Martin', 'Paul', TO_DATE('1993-04-12', 'YYYY-MM-DD'), 'M', '29292929292929', 48000.00, TO_DATE('2022-11-13', 'YYYY-MM-DD'), 1, 'Tue-Sat', 'Assistant');
+INSERT INTO Employe VALUES ('48100000000048', 'Thompson', 'Kenneth', TO_DATE('1987-05-14', 'YYYY-MM-DD'), 'M', '30303030303030', 51000.00, TO_DATE('2023-09-23', 'YYYY-MM-DD'), 2, 'Mon-Fri', 'Baker');
+INSERT INTO Employe VALUES ('49100000000049', 'Harris', 'Joshua', TO_DATE('1992-09-17', 'YYYY-MM-DD'), 'M', '30303030303030', 49000.00, TO_DATE('2023-07-27', 'YYYY-MM-DD'), 1, 'Tue-Sat', 'Cashier');
+INSERT INTO Employe VALUES ('50100000000050', 'Walker', 'Amanda', TO_DATE('1993-12-25', 'YYYY-MM-DD'), 'F', '29292929292929', 52000.00, TO_DATE('2021-12-03', 'YYYY-MM-DD'), 2, 'Mon-Fri', 'Baker');
+INSERT INTO Employe VALUES ('51100000000051', 'Allen', 'Rebecca', TO_DATE('1997-11-23', 'YYYY-MM-DD'), 'F', '28282828282828', 53000.00, TO_DATE('2022-05-14', 'YYYY-MM-DD'), 1, 'Tue-Sat', 'Assistant');
+INSERT INTO Employe VALUES ('52100000000052', 'Wright', 'Samuel', TO_DATE('1996-11-03', 'YYYY-MM-DD'), 'M', '27272727272727', 54000.00, TO_DATE('2022-08-19', 'YYYY-MM-DD'), 2, 'Mon-Fri', 'Cashier');
+INSERT INTO Employe VALUES ('53100000000053', 'Scott', 'Ryan', TO_DATE('1995-08-18', 'YYYY-MM-DD'), 'M', '26262626262626', 49000.00, TO_DATE('2023-01-09', 'YYYY-MM-DD'), 1, 'Tue-Sat', 'Baker');
+INSERT INTO Employe VALUES ('54100000000054', 'Hill', 'Nick', TO_DATE('1991-10-31', 'YYYY-MM-DD'), 'M', '25252525252525', 50000.00, TO_DATE('2022-06-17', 'YYYY-MM-DD'), 2, 'Mon-Fri', 'Cashier');
+INSERT INTO Employe VALUES ('55100000000055', 'Hills', 'Angela', TO_DATE('1994-09-23', 'YYYY-MM-DD'), 'F', '24242424242424', 51000.00, TO_DATE('2023-10-14', 'YYYY-MM-DD'), 1, 'Tue-Sat', 'Assistant');
+INSERT INTO Employe VALUES ('56100000000056', 'Hillman', 'Alexander', TO_DATE('1997-08-18', 'YYYY-MM-DD'), 'M', '23232323232323', 48000.00, TO_DATE('2022-11-18', 'YYYY-MM-DD'), 2, 'Mon-Fri', 'Baker');
+INSERT INTO Employe VALUES ('57100000000057', 'Green', 'Helen', TO_DATE('1996-02-28', 'YYYY-MM-DD'), 'F', '22222222222222', 49000.00, TO_DATE('2023-11-30', 'YYYY-MM-DD'), 1, 'Tue-Sat', 'Cashier');
+INSERT INTO Employe VALUES ('58100000000058', 'Addams', 'Tyler', TO_DATE('1992-10-21', 'YYYY-MM-DD'), 'M', '15151515151515', 48000.00, TO_DATE('2021-03-31', 'YYYY-MM-DD'), 2, 'Mon-Fri', 'Assistant');
+INSERT INTO Employe VALUES ('59100000000059', 'Campbell', 'Hannah', TO_DATE('1993-11-17', 'YYYY-MM-DD'), 'F', '15151515151515', 51000.00, TO_DATE('2022-08-12', 'YYYY-MM-DD'), 1, 'Tue-Sat', 'Baker');
+INSERT INTO Employe VALUES ('60100000000060', 'Roberts', 'Kyle', TO_DATE('1990-09-30', 'YYYY-MM-DD'), 'M', '15151515151515', 53000.00, TO_DATE('2023-11-12', 'YYYY-MM-DD'), 2, 'Mon-Fri', 'Assistant');
 
 -- INSERT VENTE 
 INSERT INTO Vente VALUES (101, TO_DATE('2022-01-15', 'YYYY-MM-DD'), TO_DATE('2022-01-15', 'YYYY-MM-DD'), '11111111111111', '10000000000001', '100000000000001', 150.00);
@@ -326,6 +357,41 @@ INSERT INTO Produit VALUES ('P027', 9.50, TO_DATE('2024-03-10', 'YYYY-MM-DD'), '
 INSERT INTO Produit VALUES ('P028', 16.75, TO_DATE('2024-04-15', 'YYYY-MM-DD'), '28100000000028');
 INSERT INTO Produit VALUES ('P029', 22.00, TO_DATE('2024-05-20', 'YYYY-MM-DD'), '29100000000029');
 
+-- INSERT Pain
+INSERT INTO Pain VALUES ('P001', 'baguette tradition', 20);
+INSERT INTO Pain VALUES ('P002', 'pain de campagne', 20);
+INSERT INTO Pain VALUES ('P003', 'pain nordique', 20);
+INSERT INTO Pain VALUES ('P004', 'baguette tradition', 20);
+INSERT INTO Pain VALUES ('P005', 'baguette', 20);
+INSERT INTO Pain VALUES ('P006', 'baguette aux graines', 20);
+INSERT INTO Pain VALUES ('P007', 'pain complet', 20);
+INSERT INTO Pain VALUES ('P008', 'pain de mie', 20);
+INSERT INTO Pain VALUES ('P009', 'pain brioche', 20);
+INSERT INTO Pain VALUES ('P010', 'baguette epi', 20);
+INSERT INTO Pain VALUES ('P011', 'pain de seigle', 20);
+INSERT INTO Pain VALUES ('P012', 'pain marguerite', 20);
+INSERT INTO Pain VALUES ('P012', 'pain aux graines', 20);
+INSERT INTO Pain VALUES ('P013', 'pain abricot-noisette', 20);
+INSERT INTO Pain VALUES ('P014', 'baguette viennoise', 20);
+
+-- INSERT Patisserie
+INSERT INTO Patisserie VALUES ('P015', 'éclair au chocolat', 2);
+INSERT INTO Patisserie VALUES ('P016', 'pain au chocolat', 20);
+INSERT INTO Patisserie VALUES ('P017', 'croissant', 20);
+INSERT INTO Patisserie VALUES ('P018', 'pain au raisin', 20);
+INSERT INTO Patisserie VALUES ('P019', 'éclair au café', 2);
+INSERT INTO Patisserie VALUES ('P020', 'fraisier', 4);
+INSERT INTO Patisserie VALUES ('P021', 'paris-brest', 4);
+INSERT INTO Patisserie VALUES ('P022', 'mille-feuille', 4);
+INSERT INTO Patisserie VALUES ('P023', 'gland', 2);
+INSERT INTO Patisserie VALUES ('P024', 'chouquettes', 20);
+INSERT INTO Patisserie VALUES ('P025', 'tarte au fraises', 2);
+INSERT INTO Patisserie VALUES ('P026', 'tarte au citron meringuée', 2);
+INSERT INTO Patisserie VALUES ('P027', 'meringue', 20);
+INSERT INTO Patisserie VALUES ('P028', 'religieuse café', 2);
+INSERT INTO Patisserie VALUES ('P029', 'religieuse chocolat', 2);
+
+
 
 -- INSERT Ligne_Vente
 INSERT INTO Ligne_Vente VALUES (1, 101, 'P001', '100000000000001', '11111111111111');
@@ -372,10 +438,30 @@ BEGIN
     WHERE reference_produit = :NEW.reference_produit;
 
     IF v_count > 0 THEN
-        RAISE_APPLICATION_ERROR(-200001, 'Le produit est déjà une pâtisserie');
+        RAISE_APPLICATION_ERROR(-20001, 'Le produit est déjà une pâtisserie');
     END IF;
 END;
 /
+
+-- TRIGGER HERITAGE PATISSERIE
+CREATE OR REPLACE TRIGGER heritage_patisserie
+BEFORE INSERT OR UPDATE ON patisserie 
+FOR EACH ROW
+DECLARE
+    v_count NUMBER;
+BEGIN
+    SELECT COUNT(*) 
+    INTO v_count 
+    FROM Pain 
+    WHERE Pain.reference_produit = :NEW.reference_produit;
+
+    IF v_count > 0 THEN
+        RAISE_APPLICATION_ERROR(-20002, 'Le produit est déjà un pain');
+
+    END IF;
+END;
+/
+
 
 -- TRIGGER NSS VENDEUR EXISTE DANS NSS EMPLOYE
 CREATE OR REPLACE TRIGGER check_vente_employe
@@ -459,3 +545,18 @@ BEGIN
     END IF;
 END;
 /
+
+-- VUE DES MEMBRES D'UNE ÉQUIPE D'UN MAGASIN
+CREATE OR REPLACE VIEW membre_equipe as 
+SELECT em.nss, em.nom, em.prenom,em.num_equipe
+FROM Employe em
+JOIN Equipe eq ON em.num_equipe = eq.numero_equipe
+JOIN Boulangerie b ON eq.num_siret_magasin = b.numero_siret
+ORDER BY em.numero_equipe;
+
+-- VUE DES HORAIRES DU NOMBRE D'EMPLOYE PAR MAGASINS
+CREATE OR REPLACE VIEW nombre_employes (numero_siret, nom_boulangerie, quantite_employe) AS
+SELECT b.numero_siret, b.nom_boulangerie, COUNT(em.nss)
+from Boulangerie b, employe em
+JOIN employe em ON b.numero_siret = em.siret_magasin
+ORDER BY b.numero_siret;
