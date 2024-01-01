@@ -370,9 +370,9 @@ INSERT INTO Pain VALUES ('P009', 'pain brioche', 20);
 INSERT INTO Pain VALUES ('P010', 'baguette epi', 20);
 INSERT INTO Pain VALUES ('P011', 'pain de seigle', 20);
 INSERT INTO Pain VALUES ('P012', 'pain marguerite', 20);
-INSERT INTO Pain VALUES ('P012', 'pain aux graines', 20);
-INSERT INTO Pain VALUES ('P013', 'pain abricot-noisette', 20);
-INSERT INTO Pain VALUES ('P014', 'baguette viennoise', 20);
+INSERT INTO Pain VALUES ('P013', 'pain aux graines', 20);
+INSERT INTO Pain VALUES ('P014', 'pain abricot-noisette', 20);
+INSERT INTO Pain VALUES ('P015', 'baguette viennoise', 20);
 
 -- INSERT Patisserie
 INSERT INTO Patisserie VALUES ('P015', 'éclair au chocolat', 2);
@@ -561,3 +561,84 @@ SELECT b.numero_siret, b.nom_boulangerie, COUNT(em.nss)
 from Boulangerie b, employe em
 JOIN employe em ON b.numero_siret = em.siret_magasin
 ORDER BY b.numero_siret;
+
+--Le numéro de sécurité sociale du responsable de la boulangerie X
+SELECT nss_responsable
+FROM Boulangerie
+WHERE nom_boulangerie = 'Le Pain Doré';
+
+
+-- le nom des boulangeries installées a "ville1" classés par ordre alphabetique
+SELECT nom_boulangerie
+FROM Boulangerie
+WHERE ville = 'Ville1'
+ORDER BY nom_boulangerie;
+
+
+-- Employe ayant été embauché avant 20/11/22
+SELECT *
+FROM Employe
+WHERE date_embauche < TO_DATE('2022-11-20', 'YYYY-MM-DD');
+
+
+-- Récupérer les ventes ainsi que les noms du client et de l'employé vendeur
+SELECT V.*, C.nom AS client_name, E.nom AS employee_name
+FROM Vente V
+JOIN Clients C ON V.numero_client = C.numero_client
+JOIN Employe E ON V.nss_vendeur = E.nss;
+
+
+-- Le salaire moyen des employés de chaque boulangerie
+SELECT B.numero_siret, B.nom_boulangerie, AVG(E.salaire) AS average_salary
+FROM Boulangerie B
+JOIN Employe E ON B.numero_siret = E.siret_magasin
+GROUP BY B.numero_siret, B.nom_boulangerie;
+
+
+-- Top 5 des clients avec le total le plus élevé 
+SELECT C.numero_client, C.nom, C.prenom, SUM(V.total) AS total_purchases
+FROM Clients C
+JOIN Vente V ON C.numero_client = V.numero_client
+GROUP BY C.numero_client, C.nom, C.prenom
+ORDER BY total_purchases DESC
+FETCH FIRST 5 ROWS ONLY;
+
+
+-- Produit Best seller
+SELECT P.reference_produit, P.prix, SUM(LV.total_ligne) AS total_revenue
+FROM Produit P
+JOIN Ligne_Vente LV ON P.reference_produit = LV.ref_produit
+GROUP BY P.reference_produit, P.prix
+ORDER BY total_revenue DESC
+FETCH FIRST 1 ROW ONLY;
+
+
+-- Produit avec une température de conservation supérieure à la moyenne 
+SELECT *
+FROM Patisserie
+WHERE temperature_conservation > (SELECT AVG(temperature_conservation) FROM Patisserie);
+
+
+-- Récupérer les détails de la dernière vente pour chaque client
+SELECT C.numero_client, C.nom, C.prenom, V.*
+FROM Clients C
+JOIN Vente V ON C.numero_client = V.numero_client
+WHERE (V.date_vente, V.numero_vente) IN (
+    SELECT MAX(date_vente), MAX(numero_vente)
+    FROM Vente
+    GROUP BY numero_client
+);
+
+-- Employés qui ont été en congé le plus souvent 
+SELECT E.nss, E.nom, E.prenom, E.jours_repos
+FROM Employe E
+ORDER BY LENGTH(E.jours_repos) DESC
+FETCH FIRST 1 ROW ONLY;
+
+
+-- Produits qui ont été vendus le moins fréquemment
+SELECT P.reference_produit, P.prix, COALESCE(COUNT(LV.ref_produit), 0) AS nombre_ventes
+FROM Produit P
+LEFT JOIN Ligne_Vente LV ON P.reference_produit = LV.ref_produit
+GROUP BY P.reference_produit, P.prix
+ORDER BY nombre_ventes ASC;
