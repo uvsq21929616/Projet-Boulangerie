@@ -562,6 +562,39 @@ from Boulangerie b, employe em
 JOIN employe em ON b.numero_siret = em.siret_magasin
 ORDER BY b.numero_siret;
 
+
+-- VUE FOURNISSANT DES INFO SUR LES CLIENTS ET LA BOULANGERUE ASSOCIEE 
+CREATE VIEW VueClientBoulangerie AS
+SELECT
+    C.numero_client,
+    C.nom,
+    C.prenom,
+    B.nom_boulangerie,
+    B.adresse,
+    B.ville
+FROM
+    Clients C
+INNER JOIN
+    Vente V ON C.numero_client = V.numero_client
+INNER JOIN
+    Boulangerie B ON V.num_siret_magasin = B.numero_siret;
+
+
+-- VUE FOURISSANT LA QUANTITE VENDUE ET LE CHIFFRE TOTAL POUR CHAQUE PDT
+CREATE VIEW VueProduitsVendus AS
+SELECT
+    P.reference_produit,
+    P.prix,
+    COUNT(LV.numero_ligne_vente) AS quantite_vendue,
+    SUM(LV.total_ligne) AS chiffre_affaires_total
+FROM
+    Produit P
+INNER JOIN
+    Ligne_Vente LV ON P.reference_produit = LV.ref_produit
+GROUP BY
+    P.reference_produit, P.prix;
+
+
 --Le numéro de sécurité sociale du responsable de la boulangerie X
 SELECT nss_responsable
 FROM Boulangerie
