@@ -305,7 +305,7 @@ INSERT INTO Vente VALUES (135, TO_DATE('2024-11-20', 'YYYY-MM-DD'), NULL, '19191
 INSERT INTO Vente VALUES (136, TO_DATE('2024-12-25', 'YYYY-MM-DD'), TO_DATE('2024-12-25', 'YYYY-MM-DD'), '55555555555555', '36100000000036', '261000000000026', 175.00);
 INSERT INTO Vente VALUES (137, TO_DATE('2025-01-30', 'YYYY-MM-DD'), NULL, '21212121212121', '37100000000037', NULL, 130.50);
 INSERT INTO Vente VALUES (138, TO_DATE('2025-02-05', 'YYYY-MM-DD'), NULL, '99999999999999', '38100000000038', NULL, 185.25);
-INSERT INTO Vente VALUES (139, TO_DATE('2025-03-10', 'YYYY-MM-DD'), NULL, '22222222222222', '39100000000039', NULL, 200.99);
+INSERT INTO Vente VALUES (139, TO_DATE('2025-03-10', 'YYYY-MM-DD'), NULL, '11111111111110', '39100000000039', NULL, 200.99);
 INSERT INTO Vente VALUES (140, TO_DATE('2025-04-15', 'YYYY-MM-DD'), TO_DATE('2025-04-15', 'YYYY-MM-DD'), '11111111111111', '40100000000040', '301000000000030', 155.75);
 
 
@@ -685,11 +685,19 @@ LEFT JOIN Ligne_Vente LV ON P.reference_produit = LV.ref_produit
 GROUP BY P.reference_produit, P.prix
 ORDER BY nombre_ventes ASC;
 
-    numero_siret VARCHAR2(14) CONSTRAINT pk_boulangerie PRIMARY KEY,
-    nom_boulangerie VARCHAR2(40),
-    adresse VARCHAR2(50),
-    ville VARCHAR2(20),
-    heure_ouverture VARCHAR2(8),
-    heure_fermeture VARCHAR2(8),
-    nss_responsable VARCHAR2(14)
-);
+-- Produit le plus vendu
+SELECT P.reference_produit, SUM(LV.quantite) AS quantite_totale_vendue
+FROM Ligne_Vente LV
+JOIN Produit P ON LV.ref_produit = P.reference_produit
+GROUP BY P.reference_produit
+ORDER BY quantite_totale_vendue DESC
+FETCH FIRST 1 ROW ONLY;
+
+-- Chiffre total réalisé par chaque boulangerie
+SELECT B.nom_boulangerie, COUNT(DISTINCT V.numero_vente) AS nombre_ventes,SUM(V.total) AS chiffre_affaires_total
+FROM Boulangerie B
+LEFT JOIN
+    Vente V ON B.numero_siret = V.num_siret_magasin
+       AND V.date_vente BETWEEN TO_DATE('2023-01-01', 'YYYY-MM-DD') AND TO_DATE('2023-12-31', 'YYYY-MM-DD')
+GROUP BY B.nom_boulangerie
+ORDER BY chiffre_affaires_total DESC;
