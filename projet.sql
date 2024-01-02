@@ -540,31 +540,46 @@ END;
 /
 
 -- VUE DES MEMBRES D'UNE ÉQUIPE D'UN MAGASIN
-CREATE OR REPLACE VIEW membre_equipe as 
-SELECT em.nss, em.nom, em.prenom,em.num_equipe
+CREATE OR REPLACE VIEW VueMembreEquipe as 
+SELECT 
+    em.num_equipe as numero_equipe, 
+    em.nss as numero_securite_sociale, 
+    em.nom as nom, 
+    em.prenom as prenom,
+    em.num_siret as numero_siret
 FROM Employe em
-JOIN Equipe eq ON em.num_equipe = eq.numero_equipe
-JOIN Boulangerie b ON eq.num_siret_magasin = b.numero_siret
-ORDER BY em.num_equipe;
+JOIN 
+    Equipe eq ON em.num_equipe = eq.numero_equipe
+JOIN 
+    Boulangerie b ON eq.num_siret_magasin = b.numero_siret
+ORDER BY 
+    em.num_equipe;
 
 -- VUE DU NOMBRE D'EMPLOYE PAR MAGASINS
 CREATE OR REPLACE VIEW nombre_employes (numero_siret, nom_boulangerie, quantite_employe) AS
-SELECT b.numero_siret, b.nom_boulangerie, COUNT(em.nss)
+SELECT 
+    b.numero_siret as numero_siret, 
+    b.nom_boulangerie as nom_boulangerie, 
+    COUNT(em.nss) as quantite_employe
 FROM Boulangerie b
-JOIN Employe em ON b.numero_siret = em.siret_magasin
-GROUP BY b.numero_siret, b.nom_boulangerie
-ORDER BY b.numero_siret;
+JOIN 
+    Employe em ON b.numero_siret = em.siret_magasin
+GROUP BY 
+    b.numero_siret, b.nom_boulangerie
+ORDER BY 
+    b.numero_siret;
 
 
 -- VUE FOURNISSANT DES INFO SUR LES CLIENTS ET LA BOULANGERUE ASSOCIEE 
 CREATE OR REPLACE VIEW VueClientBoulangerie AS
 SELECT
-    C.numero_client,
-    C.nom,
-    C.prenom,
-    B.nom_boulangerie,
-    B.adresse,
-    B.ville
+    C.numero_client as numero_client,
+    C.nom as nom,
+    C.prenom as prenom,
+    B.nom_boulangerie as nom_boulangerie,
+    B.adresse as adresse,
+    B.ville as ville,
+    B.numero_siret as numero_siret
 FROM
     Clients C
 INNER JOIN
@@ -590,7 +605,7 @@ GROUP BY
 -- VUE FOURNISSANT LA QUANTITE DE VENTE ET DE COMMANDE PAR MAGASIN
 CREATE OR REPLACE VIEW VueVentesCommandes AS
 SELECT
-    num_siret_magasin AS num_siret,
+    num_siret_magasin AS numero_siret,
     COUNT(CASE WHEN date_recup IS NULL AND numero_client IS NULL THEN 1 END) AS nombre_ventes,
     COUNT(CASE WHEN date_recup IS NOT NULL AND numero_client IS NOT NULL THEN 1 END) AS nombre_commandes
 FROM
