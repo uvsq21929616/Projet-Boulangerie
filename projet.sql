@@ -553,12 +553,12 @@ SELECT
     em.nss as numero_securite_sociale, 
     em.nom as nom, 
     em.prenom as prenom,
-    em.num_siret as numero_siret
+    em.siret_magasin as numero_siret
 FROM Employe em
 JOIN 
     Equipe eq ON em.num_equipe = eq.numero_equipe
 JOIN 
-    Boulangerie b ON eq.num_siret_magasin = b.numero_siret
+    Boulangerie b ON em.siret_magasin = b.numero_siret
 ORDER BY 
     em.num_equipe;
 
