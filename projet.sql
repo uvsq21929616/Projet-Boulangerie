@@ -557,13 +557,14 @@ ORDER BY em.num_equipe;
 -- VUE DES HORAIRES DU NOMBRE D'EMPLOYE PAR MAGASINS
 CREATE OR REPLACE VIEW nombre_employes (numero_siret, nom_boulangerie, quantite_employe) AS
 SELECT b.numero_siret, b.nom_boulangerie, COUNT(em.nss)
-from Boulangerie b, employe em
-JOIN employe em ON b.numero_siret = em.siret_magasin
+FROM Boulangerie b
+JOIN Employe em ON b.numero_siret = em.siret_magasin
+GROUP BY b.numero_siret, b.nom_boulangerie
 ORDER BY b.numero_siret;
 
 
 -- VUE FOURNISSANT DES INFO SUR LES CLIENTS ET LA BOULANGERUE ASSOCIEE 
-CREATE OR REPLACE VIEW VueClientBoulangerie AS
+CREATE VIEW VueClientBoulangerie AS
 SELECT
     C.numero_client,
     C.nom,
@@ -580,7 +581,7 @@ INNER JOIN
 
 
 -- VUE FOURISSANT LA QUANTITE VENDUE ET LE CHIFFRE TOTAL POUR CHAQUE PDT
-CREATE OR REPLACE VIEW VueProduitsVendus AS
+CREATE VIEW VueProduitsVendus AS
 SELECT
     P.reference_produit,
     P.prix,
@@ -600,7 +601,7 @@ FROM Boulangerie
 WHERE nom_boulangerie = 'Le Pain Doré';
 
 
--- le nom des boulangeries installées a "ville1" classés par ordre alphabetique
+-- le nom des boulangeries installées a Paris classés par ordre alphabetique
 SELECT nom_boulangerie
 FROM Boulangerie
 WHERE ville = 'Ville1'
@@ -635,16 +636,6 @@ GROUP BY C.numero_client, C.nom, C.prenom
 ORDER BY total_purchases DESC
 FETCH FIRST 5 ROWS ONLY;
 
-
--- Produit Best seller XX
-SELECT P.reference_produit, P.prix, SUM(LV.total_ligne) AS total_revenue
-FROM Produit P
-JOIN Ligne_Vente LV ON P.reference_produit = LV.ref_produit
-GROUP BY P.reference_produit, P.prix
-ORDER BY total_revenue DESC
-FETCH FIRST 1 ROW ONLY;
-
-
 -- Produit avec une température de conservation supérieure à la moyenne 
 SELECT *
 FROM Patisserie
@@ -674,3 +665,4 @@ FROM Produit P
 LEFT JOIN Ligne_Vente LV ON P.reference_produit = LV.ref_produit
 GROUP BY P.reference_produit, P.prix
 ORDER BY nombre_ventes ASC;
+
