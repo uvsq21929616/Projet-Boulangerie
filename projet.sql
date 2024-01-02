@@ -5,13 +5,6 @@ CREATE TABLE Clients (
     prenom VARCHAR2(30)
 );
 
--- Table Boulangerie
-CREATE TABLE Boulangerie (-- Table Clients
-CREATE TABLE Clients (
-    numero_client VARCHAR2(15) CONSTRAINT pk_clients PRIMARY KEY,
-    nom VARCHAR2(30),
-    prenom VARCHAR2(30)
-);
 
 -- Table Boulangerie
 CREATE TABLE Boulangerie (
