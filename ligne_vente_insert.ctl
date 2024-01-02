@@ -1,7 +1,7 @@
 LOAD DATA
 INFILE *
 APPEND
-INTO TABLE Commande
+INTO TABLE Ligne_Vente
 FIELDS TERMINATED BY "," OPTIONALLY ENCLOSED BY '"'
 (numero_ligne_vente, numero_vente, ref_produit, total_ligne, quantite)
 BEGINDATA

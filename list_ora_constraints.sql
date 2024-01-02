@@ -6,4 +6,6 @@ SELECT
 FROM
     user_constraints
 WHERE
-    table_name IN ('Clients', 'Boulangerie', 'Equipe', 'Employe', 'Vente', 'Produit', 'Pain', 'Patisserie', 'Ligne_Vente');
+    table_name IN ('Clients', 'Boulangerie', 'Equipe', 'Employe', 'Vente', 'Produit', 'Pain', 'Patisserie', 'Ligne_Vente')
+ORDER BY 
+    table_name
