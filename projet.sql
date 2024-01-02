@@ -685,11 +685,3 @@ LEFT JOIN Ligne_Vente LV ON P.reference_produit = LV.ref_produit
 GROUP BY P.reference_produit, P.prix
 ORDER BY nombre_ventes ASC;
 
-    numero_siret VARCHAR2(14) CONSTRAINT pk_boulangerie PRIMARY KEY,
-    nom_boulangerie VARCHAR2(40),
-    adresse VARCHAR2(50),
-    ville VARCHAR2(20),
-    heure_ouverture VARCHAR2(8),
-    heure_fermeture VARCHAR2(8),
-    nss_responsable VARCHAR2(14)
-);
