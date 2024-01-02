@@ -406,6 +406,17 @@ INSERT INTO ligne_vente VALUES (26, 126, 'P026', 2.25, 1);
 INSERT INTO ligne_vente VALUES (27, 127, 'P027', 10.50, 3);
 INSERT INTO ligne_vente VALUES (28, 128, 'P028', 4.75, 1);
 INSERT INTO ligne_vente VALUES (29, 129, 'P029', 8.00, 2);
+INSERT INTO ligne_vente VALUES (30, 130, 'P001', 3.98, 2);
+INSERT INTO ligne_vente VALUES (31, 131, 'P003', 4.00, 1);
+INSERT INTO ligne_vente VALUES (32, 132, 'P029', 12.00, 3);
+INSERT INTO ligne_vente VALUES (33, 133, 'P018', 5.50, 2);
+INSERT INTO ligne_vente VALUES (34, 134, 'P015', 5.25, 1);
+INSERT INTO ligne_vente VALUES (35, 135, 'P014', 6.00, 3);
+INSERT INTO ligne_vente VALUES (36, 136, 'P012', 5.98, 2);
+INSERT INTO ligne_vente VALUES (37, 137, 'P010', 2.00, 2);
+INSERT INTO ligne_vente VALUES (38, 138, 'P009', 9.00, 3);
+INSERT INTO ligne_vente VALUES (39, 139, 'P016', 2.99, 1);
+INSERT INTO ligne_vente VALUES (40, 140, 'P008', 5.98, 2);
 
 
 -- TRIGGER HERITAGE PAIN
