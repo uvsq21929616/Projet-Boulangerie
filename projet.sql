@@ -371,8 +371,7 @@ INSERT INTO Pain VALUES ('P010', 'baguette epi', 20);
 INSERT INTO Pain VALUES ('P011', 'pain de seigle', 20);
 INSERT INTO Pain VALUES ('P012', 'pain marguerite', 20);
 INSERT INTO Pain VALUES ('P013', 'pain aux graines', 20);
-INSERT INTO Pain VALUES ('P014', 'pain abricot-noisette', 20);
-INSERT INTO Pain VALUES ('P015', 'baguette viennoise', 20);
+INSERT INTO Pain VALUES ('P014', 'baguette viennoise', 20);
 
 -- INSERT Patisserie
 INSERT INTO Patisserie VALUES ('P015', 'éclair au chocolat', 2);
@@ -553,7 +552,7 @@ SELECT em.nss, em.nom, em.prenom,em.num_equipe
 FROM Employe em
 JOIN Equipe eq ON em.num_equipe = eq.numero_equipe
 JOIN Boulangerie b ON eq.num_siret_magasin = b.numero_siret
-ORDER BY em.numero_equipe;
+ORDER BY em.num_equipe;
 
 -- VUE DES HORAIRES DU NOMBRE D'EMPLOYE PAR MAGASINS
 CREATE OR REPLACE VIEW nombre_employes (numero_siret, nom_boulangerie, quantite_employe) AS
@@ -564,7 +563,7 @@ ORDER BY b.numero_siret;
 
 
 -- VUE FOURNISSANT DES INFO SUR LES CLIENTS ET LA BOULANGERUE ASSOCIEE 
-CREATE VIEW VueClientBoulangerie AS
+CREATE OR REPLACE VIEW VueClientBoulangerie AS
 SELECT
     C.numero_client,
     C.nom,
@@ -581,7 +580,7 @@ INNER JOIN
 
 
 -- VUE FOURISSANT LA QUANTITE VENDUE ET LE CHIFFRE TOTAL POUR CHAQUE PDT
-CREATE VIEW VueProduitsVendus AS
+CREATE OR REPLACE VIEW VueProduitsVendus AS
 SELECT
     P.reference_produit,
     P.prix,
@@ -637,7 +636,7 @@ ORDER BY total_purchases DESC
 FETCH FIRST 5 ROWS ONLY;
 
 
--- Produit Best seller
+-- Produit Best seller XX
 SELECT P.reference_produit, P.prix, SUM(LV.total_ligne) AS total_revenue
 FROM Produit P
 JOIN Ligne_Vente LV ON P.reference_produit = LV.ref_produit

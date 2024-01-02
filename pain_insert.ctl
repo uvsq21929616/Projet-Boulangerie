@@ -17,6 +17,5 @@ BEGINDATA
 'P010', 'baguette epi', 20
 'P011', 'pain de seigle', 20
 'P012', 'pain marguerite', 20
-'P012', 'pain aux graines', 20
-'P013', 'pain abricot-noisette', 20
+'P013', 'pain aux graines', 20
 'P014', 'baguette viennoise', 20
