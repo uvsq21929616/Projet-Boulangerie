@@ -723,4 +723,13 @@ WHERE numero_client IN (
     )
 );
 
--- 
+-- Les cleints qui ont acheté un produit dans au moins 2 boulengeries differentes
+SELECT DISTINCT Clients.numero_client, Clients.nom, Clients.prenom
+FROM Clients
+INNER JOIN Vente ON Clients.numero_client = Vente.numero_client
+WHERE Vente.num_siret_magasin IN (
+    SELECT num_siret_magasin
+    FROM Vente
+    GROUP BY num_siret_magasin
+    HAVING COUNT(DISTINCT numero_vente) >= 2
+);
