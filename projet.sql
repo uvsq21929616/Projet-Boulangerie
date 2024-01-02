@@ -620,7 +620,7 @@ FROM Boulangerie
 WHERE nom_boulangerie = 'Le Pain Doré';
 
 
--- le nom des boulangeries installées a Paris classés par ordre alphabetique
+-- le nom des boulangeries installées a ville1 classés par ordre alphabetique
 SELECT nom_boulangerie
 FROM Boulangerie
 WHERE ville = 'Ville1'
@@ -696,8 +696,31 @@ FETCH FIRST 1 ROW ONLY;
 -- Chiffre total réalisé par chaque boulangerie
 SELECT B.nom_boulangerie, COUNT(DISTINCT V.numero_vente) AS nombre_ventes,SUM(V.total) AS chiffre_affaires_total
 FROM Boulangerie B
-LEFT JOIN
-    Vente V ON B.numero_siret = V.num_siret_magasin
-       AND V.date_vente BETWEEN TO_DATE('2023-01-01', 'YYYY-MM-DD') AND TO_DATE('2023-12-31', 'YYYY-MM-DD')
+LEFT JOIN Vente V ON B.numero_siret = V.num_siret_magasin
 GROUP BY B.nom_boulangerie
 ORDER BY chiffre_affaires_total DESC;
+
+-- Boulangeries ou la moyenne des salaires des employes est sup a la moy generale des salaires
+SELECT B.nom_boulangerie, AVG(E.salaire) as moyenne_salaire
+FROM Boulangerie B
+JOIN Employe E ON B.numero_siret = E.siret_magasin
+GROUP BY B.nom_boulangerie
+HAVING AVG(E.salaire) > (
+    SELECT AVG(salaire)
+    FROM Employe
+);
+
+-- Clients qui ont dépensé plus que la moyenne des dépenses de tous les clients 
+SELECT nom, prenom
+FROM Clients
+WHERE numero_client IN (
+    SELECT numero_client
+    FROM Vente
+    GROUP BY numero_client
+    HAVING SUM(total) > (
+        SELECT AVG(total)
+        FROM Vente
+    )
+);
+
+-- 
