@@ -537,7 +537,7 @@ JOIN Equipe eq ON em.num_equipe = eq.numero_equipe
 JOIN Boulangerie b ON eq.num_siret_magasin = b.numero_siret
 ORDER BY em.num_equipe;
 
--- VUE DES HORAIRES DU NOMBRE D'EMPLOYE PAR MAGASINS
+-- VUE DU NOMBRE D'EMPLOYE PAR MAGASINS
 CREATE OR REPLACE VIEW nombre_employes (numero_siret, nom_boulangerie, quantite_employe) AS
 SELECT b.numero_siret, b.nom_boulangerie, COUNT(em.nss)
 FROM Boulangerie b
@@ -547,7 +547,7 @@ ORDER BY b.numero_siret;
 
 
 -- VUE FOURNISSANT DES INFO SUR LES CLIENTS ET LA BOULANGERUE ASSOCIEE 
-CREATE VIEW VueClientBoulangerie AS
+CREATE OR REPLACE VIEW VueClientBoulangerie AS
 SELECT
     C.numero_client,
     C.nom,
@@ -564,7 +564,7 @@ INNER JOIN
 
 
 -- VUE FOURISSANT LA QUANTITE VENDUE ET LE CHIFFRE TOTAL POUR CHAQUE PDT
-CREATE VIEW VueProduitsVendus AS
+CREATE OR REPLACE VIEW VueProduitsVendus AS
 SELECT
     P.reference_produit,
     P.prix,
@@ -576,6 +576,17 @@ INNER JOIN
     Ligne_Vente LV ON P.reference_produit = LV.ref_produit
 GROUP BY
     P.reference_produit, P.prix;
+
+-- VUE FOURNISSANT LA QUANTITE DE VENTE ET DE COMMANDE PAR MAGASIN
+CREATE OR REPLACE VIEW VueVentesCommandes AS
+SELECT
+    num_siret_magasin AS num_siret,
+    COUNT(CASE WHEN date_recup IS NULL AND numero_client IS NULL THEN 1 END) AS nombre_ventes,
+    COUNT(CASE WHEN date_recup IS NOT NULL AND numero_client IS NOT NULL THEN 1 END) AS nombre_commandes
+FROM
+    Vente
+GROUP BY
+    num_siret_magasin;
 
 
 --Le numéro de sécurité sociale du responsable de la boulangerie X
